@@ -32,11 +32,10 @@ class Solution {
         // Code here
         ArrayList<String> ans = new ArrayList<>();
         allPermutation(S,"",ans);
-        // HashSet<String> set = new HashSet<>(ans);
-        TreeSet<String> set = new TreeSet<>(ans);
+        HashSet<String> set = new HashSet<>(ans);
         ans.clear();
         ans.addAll(set);
-        // Collections.sort(ans);
+        Collections.sort(ans);
         return ans;
     }
     private void allPermutation(String s, String helpString, ArrayList<String>ans){
