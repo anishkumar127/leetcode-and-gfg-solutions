@@ -10,7 +10,7 @@ public:
         }
         
         for(auto val:map){
-            if(val.second!=0) return false;
+            if(val.second) return false;
         }
         
         return true;
