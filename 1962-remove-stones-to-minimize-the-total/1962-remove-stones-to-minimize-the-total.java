@@ -8,7 +8,7 @@ class Solution {
         }
         while(k-->0){
             int val = pq.remove();
-            int newval = (int)Math.floor(val-val/2);
+            int newval =(int) Math.ceil((val*1.0)/2);
             // System.out.print("val "+val+"newval "+newval+" ");
             pq.add(newval);
         }
