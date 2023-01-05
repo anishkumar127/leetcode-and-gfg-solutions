@@ -1,18 +1,18 @@
 class Solution {
     public int minDeletionSize(String[] strs) {
-        if(strs == null || strs.length == 0) return 0;
-        int deletions = 0;
-        for(int column = 0; column < strs[0].length(); column++){
-            char character = strs[0].charAt(column);
-            for(int word = 0; word < strs.length; word++){
-                if(strs[word].charAt(column) < character){
-                    deletions++;
+        if(strs.length==0) return 0;
+        
+        int ans = 0;
+        int len = strs[0].length(); // 3
+        for(int i=0; i<len; i++){  // inside -> abc
+            for(int j=1; j<strs.length; j++){ // whole string.
+                if(strs[j-1].charAt(i)>strs[j].charAt(i)){
+                    ans++;
                     break;
                 }
-                character = strs[word].charAt(column);
             }
         }
-
-        return deletions;
+        
+        return ans;
     }
 }
