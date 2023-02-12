@@ -8,7 +8,9 @@ class Solution {
     }
     
     private int findMax(int idx, int[] arr,int[] dp){
-        if(idx==arr.length) return 0;
+        if(idx==arr.length){
+            return dp[idx] = 0;
+        }
         
         int rob = arr[idx];
         int notRob = 0;
@@ -20,7 +22,6 @@ class Solution {
         notRob+=findMax(idx+1,arr,dp);
         
         int ans = Math.max(rob,notRob);
-        dp[idx] = ans;
-        return dp[idx];
+        return dp[idx] = ans;
     }
 }
