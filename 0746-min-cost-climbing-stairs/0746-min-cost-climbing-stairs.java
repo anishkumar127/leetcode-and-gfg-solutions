@@ -1,31 +1,32 @@
 class Solution {
     private int minCost(int[] cost , int idx, int[] dp){
+      for(idx = cost.length; idx>=0; idx--){
+          
         if(idx==cost.length){
-            return dp[idx] = 0;
+             dp[idx] = 0;
+            continue;
         }
         
-        if(dp[idx]!=0) return dp[idx];
         // step one
-        int stepOne = minCost(cost,idx+1,dp);
+        int stepOne = dp[idx+1];//minCost(cost,idx+1,dp);
         
         // step two.
         // why this ? because maybe be the cost array not have enough elements. and we need to math.min
         int stepTwo = Integer.MAX_VALUE;
         
         if(idx+2<=cost.length){
-            stepTwo = minCost(cost,idx+2,dp);
+            stepTwo =   dp[idx+2];//minCost(cost,idx+2,dp);
         }
         // cost[idx] because i need to current index cost also.
         int ans = cost[idx] + Math.min(stepOne, stepTwo);
         
-        return dp[idx] = ans;
+        dp[idx] = ans;
+      }  
         
+        return Math.min(dp[0],dp[1]);
     }
     public int minCostClimbingStairs(int[] cost) {
         int n = cost.length;
-        int startWithZero = minCost(cost,0, new int[n+1]);
-        int startWithOne = minCost(cost,1,new int[n+1]);
-        
-        return Math.min(startWithZero,startWithOne);
+        return minCost(cost,0,new int [n+1]);
     }
 }
