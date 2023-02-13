@@ -1,6 +1,6 @@
 class Solution {
-    private int minCost(int[] cost , int idx, int[] dp){
-      for(idx = cost.length; idx>=0; idx--){
+    private int minCost(int[] cost ,  int[] dp){
+      for(int idx = cost.length; idx>=0; idx--){
           
         if(idx==cost.length){
              dp[idx] = 0;
@@ -27,6 +27,6 @@ class Solution {
     }
     public int minCostClimbingStairs(int[] cost) {
         int n = cost.length;
-        return minCost(cost,0,new int [n+1]);
+        return minCost(cost,new int [n+1]);
     }
 }
