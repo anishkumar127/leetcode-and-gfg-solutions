@@ -4,6 +4,5 @@
  * @return {number}
  */
 var strStr = function(haystack, needle) {
-    const ans = haystack.match(needle);
-    return ans ? ans.index : -1;
+    return haystack.indexOf(needle);
 };
