@@ -3,16 +3,15 @@
  * @return {string}
  */
 var reverseWords = function(s) {
-    const arr = s.trim().split(/\s+/); // trim extra space and split into array.
+    let arr = s.split(' ');
     
-    // create new array.
-    const ans = [] ;
+    let reverseStr = '';
     
     for(let i=arr.length-1; i>=0; i--){
-        if(arr[i]!= ' '){
-            ans.push(arr[i]);
-        }
+        if(arr[i]=='') continue;
+        if(reverseStr.length>0) reverseStr+=' ';
+        reverseStr+=arr[i];
     }
     
-    return ans.join(" ");
+    return reverseStr;
 };
