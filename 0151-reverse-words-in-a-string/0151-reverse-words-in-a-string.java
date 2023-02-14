@@ -1,6 +1,6 @@
 class Solution {
     public String reverseWords(String s) {
-        String[] words = s.split(" +");
+        String[] words = s.split(" +"); // + because every type of space remove.
         
         StringBuilder sb = new StringBuilder();
         
