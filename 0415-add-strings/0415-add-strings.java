@@ -8,13 +8,11 @@ class Solution {
         
         while(i>=0 || j>=0){
             int sum = carry;
-            if(i>=0) sum+=num1.charAt(i)-'0';
-            if(j>=0) sum+=num2.charAt(j)-'0';
+            if(i>=0) sum+=num1.charAt(i--)-'0';
+            if(j>=0) sum+=num2.charAt(j--)-'0';
             
             carry = sum/10;
             ans.append(sum%10);
-            i--;
-            j--;
         }
         if(carry!=0) ans.append(carry);
         
