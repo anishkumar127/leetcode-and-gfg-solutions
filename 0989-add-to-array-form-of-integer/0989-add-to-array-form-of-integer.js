@@ -1,34 +1,39 @@
-class Solution {
-    public List<Integer> addToArrayForm(int[] num, int k) {
-        ArrayList<Integer> ans = new ArrayList<>();
+/**
+ * @param {number[]} num
+ * @param {number} k
+ * @return {number[]}
+ */
+var addToArrayForm = function(num, k) {
+    let ans = [];
+    
+    let carry = 0;
+    let i = num.length-1;
+    
+    let s = k.toString();
+    let j = s.length-1;
+    
+    while(i>=0 || j>=0){
+        let sum = carry;
         
-        int carry = 0;
-        int i = num.length-1;
-        String s = String.valueOf(k);
-        int j = s.length()-1;
-        
-        while(i>=0 || j>=0){
-            
-            int sum = carry;
-            
-            if(i>=0){
-                sum+=num[i];
-                i--;
-            }
-            
-            if(j>=0){
-                sum+=s.charAt(j)-'0';
-                j--;
-            }
-            
-            carry = sum/10;
-            
-            ans.add(sum%10);
+        if(i>=0){
+            sum+=num[i];
+            i--;
         }
-        
-        if(carry!=0) ans.add(carry);
-        
-        Collections.reverse(ans);
-        return ans;
+        if(j>=0){
+            // sum+=s[j];
+            sum+=  s.charAt(j)-'0'; // importent! in javascript otherwise output wrong.
+            j--;
+        }
+        carry = Math.trunc(sum/10); 
+        ans.push(sum%10);
     }
-}
+    // if carry left
+    
+    if(carry!==0) {
+        console.log(carry);
+        ans.push(carry);
+    }
+    ans.reverse();
+    
+    return ans;
+};
