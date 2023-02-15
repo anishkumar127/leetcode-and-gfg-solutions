@@ -20,11 +20,11 @@ var addToArrayForm = function(num, k) {
             i--;
         }
         if(j>=0){
-            // sum+=s[j];
-            sum+=  s.charAt(j)-'0'; // importent! in javascript otherwise output wrong.
+            sum+=s[j]-'0';
+            // sum+=  s.charAt(j)-'0'; // importent! in javascript otherwise output wrong.
             j--;
         }
-        carry = Math.trunc(sum/10); 
+        carry = Math.trunc(sum/10);  // Math.trunc() importent! otherwise JS convert to float 
         ans.push(sum%10);
     }
     // if carry left
