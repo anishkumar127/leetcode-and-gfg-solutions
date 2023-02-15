@@ -20,7 +20,8 @@ var addToArrayForm = function(num, k) {
             i--;
         }
         if(j>=0){
-            sum+=s[j]-'0';
+            // sum+=s[j]-'0';
+            sum+=Math.trunc(s[j]);
             // sum+=  s.charAt(j)-'0'; // importent! in javascript otherwise output wrong.
             j--;
         }
