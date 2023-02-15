@@ -6,47 +6,16 @@ class Solution {
         int carry =0;
         StringBuilder ans = new StringBuilder();
         
-        while(i>=0 && j>=0){
-            
-            int x = num1.charAt(i)-'0';
-            int y = num2.charAt(j)-'0';
-            
-            int sum = x + y + carry;
+        while(i>=0 || j>=0){
+            int sum = carry;
+            if(i>=0) sum+=num1.charAt(i)-'0';
+            if(j>=0) sum+=num2.charAt(j)-'0';
             
             carry = sum/10;
-            
             ans.append(sum%10);
-            
             i--;
             j--;
         }
-        
-        while(i>=0){
-            
-            int x = num1.charAt(i)-'0';
-            
-            int sum = x + carry;
-            
-            carry = sum/10;
-            
-            ans.append(sum%10);
-            
-            i--;
-        }
-        
-        while(j>=0){
-            
-            int y = num2.charAt(j)-'0';
-            
-            int sum =  y + carry;
-            
-            carry = sum/10;
-            
-            ans.append(sum%10);
-            
-            j--;
-        }
-        
         if(carry!=0) ans.append(carry);
         
         return ans.reverse().toString();
