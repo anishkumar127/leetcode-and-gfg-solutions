@@ -1,23 +1,36 @@
-const minDiffInBST = function(root) {
-    const values = getAllValues(root, []);
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
 
-    let min = 10000;
-
-    for (let i = 1; i in values; i++) {
-        min = Math.min(values[i] - values[i - 1], min);
+var minDiffInBST = function(root) {
+    
+    let min = Number.MAX_VALUE;
+    let prev = null;
+    inOrder(root);
+    
+    function inOrder(root){
+    if(root===null) return ;
+    
+    inOrder(root.left);
+    
+    if(prev!==null){
+        min = Math.min(min,root.val-prev);
     }
-
+    
+    prev = root.val;
+    
+    inOrder(root.right);
+   }
+    
     return min;
-}
+};
 
-function getAllValues(root, values) {
-    if (!root) return;
-
-    // Inorder traversal of the BST
-    // keeps the values array sorted
-    getAllValues(root.left, values);
-    values.push(root.val);
-    getAllValues(root.right, values);
-
-    return values;
-}
