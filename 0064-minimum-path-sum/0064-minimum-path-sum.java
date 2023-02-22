@@ -1,34 +1,20 @@
 class Solution {
-    public int minPathSum(int[][] grid) {
-        if(grid==null || grid.length==0){
-            return 0;
-        }
-        HashMap<String, Integer> map = new HashMap<>();
-        
-        int ans = maxSumRecursion(0,0,grid,map);
-        
-        return ans;
+    private static int pathSum(int[][] m , int i, int j, int [][]dp){
+        if(i>=m.length || j>=m[0].length) return Integer.MAX_VALUE;
+
+        if(i==m.length-1 && j==m[0].length-1) return m[i][j];
+
+        if(dp[i][j]!=-1) return dp[i][j];
+
+        int right = pathSum(m,i,j+1,dp); 
+        int down = pathSum(m,i+1,j,dp); 
+        return dp[i][j] =  Math.min(right,down) + m[i][j];
     }
-        private int maxSumRecursion(int i , int j , int [][] grid, HashMap<String,Integer>map){
-        int n = grid.length-1;
-        int m = grid[0].length-1;
-        
-        if(i>n || j>m){
-            return Integer.MAX_VALUE;
+    public int minPathSum(int[][] input) {
+        int[][] dp = new int[input.length+1][input[0].length+1];
+        for(int[] val:dp){
+            Arrays.fill(val,-1);
         }
-        if(i==n && j==m){
-            return grid[i][j];
-        }
-        
-        String key = i+"#"+j;
-        if(map.containsKey(key)){
-            return map.get(key);
-        }
-            
-        int x = maxSumRecursion(i+1,j,grid,map);
-        int y = maxSumRecursion(i,j+1,grid,map);
-        map.put(key,Math.min(x,y)+grid[i][j]);
-        return Math.min(x,y)+grid[i][j];
-        
+        return pathSum(input, 0, 0,dp);
     }
 }
