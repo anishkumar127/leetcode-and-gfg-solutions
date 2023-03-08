@@ -4,12 +4,17 @@
  * @return {number}
  */
 var minEatingSpeed = function(piles, h) {
-    let high = Math.max(...piles);
-    let low = 1;
-    let ans =0;
+    let high = Math.max(...piles),
+        low = 1,
+        ans =0;
+    
+    const eatTime = (mid) => piles.reduce((sum,pile)=> sum + Math.ceil(pile/mid),0); 
+    
     while(low<=high){
+        
         const mid = Math.trunc(low+(high-low)/2);
-        if(eatTime(piles,mid)<=h){
+    
+        if(eatTime(mid)<=h){
             ans = mid;
             high = mid -1;
         }else{
@@ -18,11 +23,3 @@ var minEatingSpeed = function(piles, h) {
     }    
     return ans;
 };
-
-function eatTime(piles,bph){
-    let time = 0;
-    for(let p of piles){
-        time += Math.trunc(Math.ceil(1.0 * p / bph));
-    }
-    return time;
-}
