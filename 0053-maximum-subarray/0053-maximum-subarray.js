@@ -4,7 +4,7 @@
  */
 var maxSubArray = function(nums) {
     let sum =0;
-    let max =  Number.NEGATIVE_INFINITY;
+    let max =  -Infinity;
     
     for(let value of nums){
         sum +=value;
