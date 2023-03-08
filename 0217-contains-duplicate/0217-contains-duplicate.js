@@ -9,7 +9,7 @@ var containsDuplicate = function(nums) {
 		return true;
 	}
 
-    console.log(map.has(nums[i]));
+    // console.log(map.has(nums[i]));
 	map.set(nums[i]);
 }
     return false;
