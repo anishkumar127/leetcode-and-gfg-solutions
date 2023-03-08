@@ -1,8 +1,11 @@
-/**
- * @param {number[]} nums
- * @return {boolean}
- */
 var containsDuplicate = function(nums) {
-    const set = new Set(nums);
-    return set.size!=nums.length;
+    var obj = {};
+    
+    for(var i = 0; i < nums.length; i++){
+        obj[nums[i]] = obj[nums[i]] + 1 || 1;
+        
+        if(obj[nums[i]] > 1) return true;
+    }
+    
+    return false;
 };
