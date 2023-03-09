@@ -1,53 +1,29 @@
-**i did it. but extra space and extra time. **
-​
-```
-class Solution {
-public int findKthPositive(int[] arr, int k) {
-Map<Integer,Boolean> map = new HashMap<>();
-​
-for(int val:arr){
-map.putIfAbsent(val,true);
-}
-int count =0;
-int size = arr[arr.length-1]+k;
-for(int i=1; i<=size; i++){
-if(map.get(i)==null){
+const size = arr[arr.length-1]+k;
+let count =0;
+for(let i = 1; i<=size; i++){
+if(!map.get(i)){
 count++;
-if(count==k){
-return i;
 }
-}
+if(count==k) return i;
 }
 return -1;
-}
-/*
-2 3 4 7 11 k 5.
-missing 1 5 6 8 9 10.
+};
+```
 ​
-1 2 3 4 k = 2. non missing.
-n +2 = 6.
-so in that what am i doing ?
+**JavaScript O(n) Tc**
 ​
-so basically i im putting into hashmap the array elements and with the
-true value. .
-key is array elements and there frqeeuncy is true.
-ok.
-​
-and then i needed extra size of for looping. because in the question example.
-giving the. if not missing elments then we need to return last elements +k like 1 2 3 4 not msising and k is 2. we need to 4+2 = 6. missing no.
-​
-so what we can do ?
-and one more case. i start from 1.in question also mention. positive no. and starting from 1.
-then what next.
-so i get size. last elements in the array. +k. bcz last elements till k our missing elements can be present.
-​
-so for now next
-travsese the loop and.
-start from i = 1. til equal to <=size. andcheck
-if map.get(i) is not present means == null. because where we din't put any true then by Default where will be null. '
-​
-so check iff null. then count ++. and when count equal to kth value.
-then return the i. bcz ith is the elements who missing in the kth position.
-​
-if there nothing missing and kth not giving as a missing then return -1;
+```js
+/**
+* @param {number[]} arr
+* @param {number} k
+* @return {number}
 */
+var findKthPositive = function(arr, k) {
+for(const e of arr){
+if(k>=e) k++;
+else return k;
+}
+return k;
+};
+​
+```
