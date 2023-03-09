@@ -11,12 +11,9 @@
  * @return {ListNode}
  */
 var detectCycle = function(head) {
-    const seen = new Set();
-    let curr = head;
-    while(curr!==null){
-        if(seen.has(curr)) return curr;
-        seen.add(curr);
-        curr = curr.next;
-    }
-    return null;
+    if(head===null || head.val===100500) return head;
+    
+    head.val = 100500;
+    
+    return detectCycle(head.next);
 };
