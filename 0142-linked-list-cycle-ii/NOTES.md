@@ -1,3 +1,11 @@
+};
+```
+​
+**JavaScript HashSet**
+​
+```
+/**
+* Definition for singly-linked list.
 * function ListNode(val) {
 *     this.val = val;
 *     this.next = null;
@@ -9,20 +17,14 @@
 * @return {ListNode}
 */
 var detectCycle = function(head) {
-let slow = head;
-let fast = head;
-while(fast!== null && fast.next!==null){
-slow = slow.next;
-fast = fast.next.next;
-if(slow===fast){
-slow = head;
-while(slow!==fast){
-slow = slow.next;
-fast=fast.next;
-}
-return slow;
-}
+const seen = new Set();
+let curr = head;
+while(curr!==null){
+if(seen.has(curr)) return curr;
+seen.add(curr);
+curr = curr.next;
 }
 return null;
 };
+​
 ```
