@@ -11,7 +11,7 @@
  * @return {ListNode}
  */
 var detectCycle = function(head) {
-    if(head===null || head.val===100500) return head;
+    if(!head || head.val===100500) return head;
     
     head.val = 100500;
     
