@@ -8,5 +8,5 @@ function singleNumber(nums: number[]): number {
         // console.log([key,value]); / [2,1]
         if(value===1) return key;
     }
-    // return -1;
+    return -1;
 };
