@@ -1,7 +1,3 @@
 function singleNumber(nums: number[]): number {
-  let xor: number = 0;
-  for (const i in nums) {
-    xor ^= nums[i];
-  }
-  return xor;
+   return nums.reduce((prev,currValue)=> prev^currValue,0);
 }
