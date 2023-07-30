@@ -5,7 +5,7 @@ function once(fn: Fn): Fn {
   return function (...args) {
     if (called) return undefined;
     called = true;
-    return fn(...args);
+    return fn.apply(this,args);
   };
 }
 
