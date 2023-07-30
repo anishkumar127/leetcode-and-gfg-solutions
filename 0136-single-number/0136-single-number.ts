@@ -1,4 +1,5 @@
 function singleNumber(nums: number[]): number {
+    if(nums.length===1) return nums[0];
  const map = new Map();
    nums.forEach((value)=>{
        const freq = (map.get(value) ?? 0 ) + 1;
