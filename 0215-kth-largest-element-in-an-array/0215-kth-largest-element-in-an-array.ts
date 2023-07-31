@@ -1,11 +1,6 @@
 function findKthLargest(nums: number[], k: number): number {
   const pq = new MinPriorityQueue();
-  for (const value of nums) {
-    pq.enqueue(value);
-    if (pq.size() > k) {
-      pq.dequeue();
-    }
-  }
-  // console.log(pq.front().element);
+  for (const value of nums) pq.enqueue(value), pq.size() > k && pq.dequeue();
+  
   return pq.front().element;
 }
