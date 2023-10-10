@@ -4,7 +4,5 @@
  * @return {character}
  */
 var nextGreatestLetter = function (letters, target) {
-  return letters.find((item) => item > target)
-    ? letters.find((item) => item > target)
-    : letters[0];
+  return letters.find((item) => item > target) || letters[0];
 };
