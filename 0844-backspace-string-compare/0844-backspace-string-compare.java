@@ -11,8 +11,8 @@ class Solution {
                 if (i > 0 && i < sb.length()) {
                     sb.delete(i - 1, i + 1);
                     // if(sb.length()>2){
-                    i--;
-                    i--;
+                    i -= 2;
+                    // i--;
                     // }
                 }
             }
@@ -23,8 +23,9 @@ class Solution {
             } else if (sb2.charAt(i) == '#') {
                 if (i > 0 && i < sb2.length()) {
                     sb2.delete(i - 1, i + 1);
-                    i--;
-                    i--;
+                    // i--;
+                    i -= 2;
+                    // i--;
                 }
             }
         }
