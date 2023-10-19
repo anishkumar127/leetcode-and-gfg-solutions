@@ -3,7 +3,7 @@ class Solution {
     public boolean backspaceCompare(String s, String t) {
         StringBuilder sb = new StringBuilder(s);
         StringBuilder sb2 = new StringBuilder(t);
-
+        if(sb.toString().equals(sb2.toString())) return true;
         for (int i = 0; i < sb.length(); i++) {
             if (sb.charAt(0) == '#') {
                 sb.delete(0, 1);
