@@ -9,7 +9,7 @@ class Solution {
                 nums[idx] = nums[i];
             }
         }
-        
+        // System.out.print(Arrays.toString(nums));
         return ++idx;
     }
 }
