@@ -10,8 +10,8 @@ class Solution {
                 StringBuilder del = new StringBuilder(deleted);
                 del.reverse();
                 sb.insert(0,del);
-                System.out.print(del);
-                i = 0;
+                // System.out.print(del);
+                i = i-1;
             }
         }
         return sb.toString();
