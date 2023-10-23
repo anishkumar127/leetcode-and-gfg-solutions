@@ -11,7 +11,6 @@ class Solution {
 
         int item = -1;
         Set<Integer> keys = map.keySet();
-        System.out.print(map);
         for (int val : keys) {
             if (map.get(val) > max) {
                 max = map.get(val);
