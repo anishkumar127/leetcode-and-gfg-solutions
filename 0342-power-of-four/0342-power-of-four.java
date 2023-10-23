@@ -14,14 +14,5 @@ class Solution {
                 break;
         }
         return false;
-//         while(n!=0){
-//             int a=n%4;
-//             if(a!=0)
-//                 return false;
-            
-            
-//             n=n/4;
-//         }
-//         return true;
     }
 }
